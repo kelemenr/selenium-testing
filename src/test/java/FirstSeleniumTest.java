@@ -13,6 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.interactions.Actions;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -51,7 +52,7 @@ public class FirstSeleniumTest {
         wait = new WebDriverWait(driver, 10);       
     }
     
-    @Test
+    /*@Test
     public void testLogin() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
@@ -145,7 +146,18 @@ public class FirstSeleniumTest {
         mainPage.clickLink();
         mainPage.pageBack();
         Assert.assertEquals("Goodreads | Meet your next favorite book", driver.getTitle());
+    }*/
+
+    @Test
+    public void dragAndDrop() {
+        MainPage mainPage = new MainPage(this.driver);
+        WebElement element = mainPage.getMainPageTextElement();
+        WebElement target = mainPage.getMainPageSearchElement();
+        (new Actions(driver)).dragAndDrop(element, target).perform();
+        Assert.assertEquals(multiplePageTestData.get("mainPage"), element.getText());
     }
+ 
+
 
     /*@Test
     public void addCookie() {
