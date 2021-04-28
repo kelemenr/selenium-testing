@@ -13,7 +13,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -149,24 +151,14 @@ public class FirstSeleniumTest {
     }*/
 
     @Test
-    public void dragAndDrop() {
-        MainPage mainPage = new MainPage(this.driver);
-        WebElement element = mainPage.getMainPageTextElement();
-        WebElement target = mainPage.getMainPageSearchElement();
-        (new Actions(driver)).dragAndDrop(element, target).perform();
-        Assert.assertEquals(multiplePageTestData.get("mainPage"), element.getText());
-    }
- 
-
-
-    /*@Test
     public void addCookie() {
-        PageBase pageBase = new PageBase(this.driver);
-        Cookie result = pageBase.addCookie("a_cookie");
+        MainPage mainPage = new MainPage(this.driver);
+        UserPage userPage = mainPage.logIn(testEmail, testPassword);
+        Cookie result = mainPage.addCookie("a_cookie");
         Assert.assertEquals("bar", result.getValue());
-        pageBase.deleteCookie("a_cookie");
+        mainPage.deleteCookie("a_cookie");
 
-    }*/
+    }
 
 
     @After
