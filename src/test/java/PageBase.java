@@ -46,5 +46,4 @@ class PageBase {
         Cookie cookie = this.driver.manage().getCookieNamed(name);
         this.driver.manage().deleteCookie(cookie);
     }
-   
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.Random;
 
 import org.openqa.selenium.support.ui.*;
 
@@ -17,6 +18,7 @@ public class MainPage extends PageBase{
     private final By searchFieldLocator = By.id("sitesearch_field");
     private final By searchButtonLocator = By.cssSelector("[alt=search]");
     private final By textAreaLocator = By.xpath("//div[@class='sellingPointBoxLeft']/h2");
+    private final By linkTextLocator = By.linkText("Best Books 2020");
 
     public MainPage(WebDriver driver){
         super(driver);
@@ -60,7 +62,7 @@ public class MainPage extends PageBase{
     }
 
     public void clickLink(){
-        WebElement text = waitAndReturnElement(By.linkText("Best Books 2020"));
+        WebElement text = waitAndReturnElement(linkTextLocator);
         text.click();
     }
 }

@@ -17,8 +17,9 @@ public class UserPage extends PageBase {
     private final By dropDownExploreLocator = By.xpath("//div[@class='siteHeader__browseMenuDropdown']/ul/li[7]/a");
     private final By radioButtonLocator = By.xpath("//div[@class='greyText fieldsToSearch']/input[3]");
     private final By userPageTextLocator = By.xpath("//section[@class='currentlyReadingShelf']/h3");
-    private final By profileLogoLocator = By.cssSelector(".circularIcon.circularIcon--border");
-    private final By logOutLocator = By.linkText("Sign out");
+    //private final By profileLogoLocator = By.cssSelector(".circularIcon.circularIcon--border");
+    private final By profileLogoLocator = By.xpath("/html/body/div[2]/div/header/div[1]/div/div[3]/ul/li[5]/div/a/span/img");
+    private final By logOutLocator = By.xpath("/html/body/div[2]/div/header/div[1]/div/div[3]/ul/li[5]/div/div/div/ul/li[13]/a");
     private final By searchBarLocator = By.cssSelector(".searchBox__input.searchBox__input--navbar");
     private final By searchButtonLocator = By.cssSelector("[aria-label=Search]");
     private final By sideSearchBarLocator = By.cssSelector(".searchBox__input.searchBox__input--currentlyReading");

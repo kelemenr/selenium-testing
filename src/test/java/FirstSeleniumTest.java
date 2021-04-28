@@ -54,7 +54,7 @@ public class FirstSeleniumTest {
         wait = new WebDriverWait(driver, 10);       
     }
     
-    /*@Test
+    @Test
     public void testLogin() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
@@ -148,7 +148,7 @@ public class FirstSeleniumTest {
         mainPage.clickLink();
         mainPage.pageBack();
         Assert.assertEquals("Goodreads | Meet your next favorite book", driver.getTitle());
-    }*/
+    }
 
     @Test
     public void addCookie() {
@@ -157,9 +157,7 @@ public class FirstSeleniumTest {
         Cookie result = mainPage.addCookie("a_cookie");
         Assert.assertEquals("bar", result.getValue());
         mainPage.deleteCookie("a_cookie");
-
     }
-
 
     @After
     public void close() {
