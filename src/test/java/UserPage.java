@@ -37,11 +37,12 @@ public class UserPage extends PageBase {
         return new MainPage(this.driver);
     }
 
-    public void fillDropDown(){
+    public RecommendPage fillDropDown(){
         WebElement dropDown = this.waitAndReturnElement(dropDownLocator);
         dropDown.click();
         WebElement dropDownValue = this.waitAndReturnElement(dropDownRecommendLocator);
         dropDownValue.click();
+        return new RecommendPage(this.driver);
     }
 
     public ExplorePage goToExplore(){

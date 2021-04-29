@@ -39,7 +39,7 @@ public class MainPage extends PageBase{
         return new UserPage(this.driver);
     }
 
-    public void search(String input){
+    public SearchResultPage search(String input){
         WebElement searchField = waitAndReturnElement(searchFieldLocator);
         searchField.click();
 
@@ -48,15 +48,12 @@ public class MainPage extends PageBase{
 
         WebElement searchButton = waitAndReturnElement(searchButtonLocator);
         searchButton.click();
+        return new SearchResultPage(this.driver);
     }
 
     public String getMainPageText(){
         WebElement text = waitAndReturnElement(textAreaLocator);
         return text.getText();
-    }
-
-    public String readTitle(){     
-        return driver.getTitle();
     }
 
     public void clickLink(){

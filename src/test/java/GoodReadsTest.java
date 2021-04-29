@@ -89,13 +89,14 @@ public class GoodReadsTest {
     @Test
     public void testSendFormWithoutUser() {
         MainPage mainPage = new MainPage(this.driver);
-        mainPage.search("Seneca");
+        SearchResultPage searchResultPage = mainPage.search("Seneca");
+        Assert.assertEquals("Search", searchResultPage.getSearchResultPageText());
     }
 
     @Test
-    public void testReadTextArea() {
+    public void testReadText() {
         MainPage mainPage = new MainPage(this.driver);
-        mainPage.getMainPageText();
+        Assert.assertEquals("Deciding what to read next?", mainPage.getMainPageText());
     }
     
     @Test
@@ -119,7 +120,7 @@ public class GoodReadsTest {
     public void testFillDropDown() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
-        userPage.fillDropDown();
+        RecommendPage recommendPage = userPage.fillDropDown();
     }
 
     @Test 
