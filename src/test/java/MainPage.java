@@ -52,13 +52,11 @@ public class MainPage extends PageBase{
 
     public String getMainPageText(){
         WebElement text = waitAndReturnElement(textAreaLocator);
-        //Assert.assertEquals("Deciding what to read next?", value);
         return text.getText();
     }
 
-    public void readTitle(){
-        String pageTitle = driver.getTitle();
-        System.out.println("Page title is : " + driver.getTitle());
+    public String readTitle(){     
+        return driver.getTitle();
     }
 
     public void clickLink(){

@@ -65,7 +65,7 @@ public class GoodReadsTest {
     public void testSendFormWithUser() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
-        SearchResultPage searchResultPage = userPage.mainSearch();
+        SearchResultPage searchResultPage = userPage.mainSearch("Selenium");
         Assert.assertEquals("Search", searchResultPage.getSearchResultPageText());
     }
 
@@ -81,7 +81,7 @@ public class GoodReadsTest {
     public void testFillInput() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
-        SearchResultPage searchResultPage = userPage.sideSearch();
+        SearchResultPage searchResultPage = userPage.sideSearch("OpenCV");
         Assert.assertEquals("Search", searchResultPage.getSearchResultPageText());
     }
 
@@ -103,7 +103,7 @@ public class GoodReadsTest {
         Assert.assertEquals(multiplePageTestData.get("mainPage"), mainPage.getMainPageText());
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         Assert.assertEquals(multiplePageTestData.get("userPage"), userPage.getUserPageText());
-        SearchResultPage searchResultPage = userPage.mainSearch();
+        SearchResultPage searchResultPage = userPage.mainSearch("Selenium");
         Assert.assertEquals(multiplePageTestData.get("searchResultPage"), searchResultPage.getSearchResultPageText());
         searchResultPage.pageBack();
         Assert.assertEquals(multiplePageTestData.get("userPage"), userPage.getUserPageText());
@@ -148,11 +148,11 @@ public class GoodReadsTest {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.clickLink();
         mainPage.pageBack();
-        Assert.assertEquals("Goodreads | Meet your next favorite book", driver.getTitle());
+        Assert.assertEquals("Goodreads | Meet your next favorite book", mainPage.readTitle());
     }
 
     @Test
-    public void tesetAddCookie() {
+    public void testAddCookie() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         Cookie result = mainPage.addCookie("a_cookie");

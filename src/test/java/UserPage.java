@@ -66,11 +66,11 @@ public class UserPage extends PageBase {
         return this.waitAndReturnElement(userPageTextLocator).getText();
     }
 
-    public SearchResultPage mainSearch(){  
+    public SearchResultPage mainSearch(String input){  
         WebElement searchBar = waitAndReturnElement(searchBarLocator);
         searchBar.click();
 
-        String searchValue = "Selenium";
+        String searchValue = input;
         searchBar.sendKeys(searchValue);
 
         WebElement searchButton = waitAndReturnElement(searchButtonLocator);
@@ -78,11 +78,11 @@ public class UserPage extends PageBase {
         return new SearchResultPage(this.driver);
     }
 
-    public SearchResultPage sideSearch(){  
+    public SearchResultPage sideSearch(String input){  
         WebElement searchField = waitAndReturnElement(sideSearchBarLocator);
         searchField.click();
 
-        String book = "Open CV";
+        String book = input;
         searchField.sendKeys(book);
 
         WebElement searchButton = waitAndReturnElement(sideSearchButtonLocator);
