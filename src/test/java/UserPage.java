@@ -46,17 +46,6 @@ public class UserPage extends PageBase {
         dropDownValue.click();
     }
 
-    public void checkRadioButton(){
-        WebElement dropDown = this.waitAndReturnElement(dropDownLocator);
-        dropDown.click();
-        WebElement dropDownValue = this.waitAndReturnElement(dropDownExploreLocator);
-        dropDownValue.click();
-
-        WebElement radioButton = this.waitAndReturnElement(radioButtonLocator);
-        radioButton.click();
-        Assert.assertEquals(true, radioButton.isSelected());
-    }
-
     public ExplorePage goToExplore(){
         WebElement dropDown = this.waitAndReturnElement(dropDownLocator);
         dropDown.click();

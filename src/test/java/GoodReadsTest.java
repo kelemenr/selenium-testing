@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 
-public class FirstSeleniumTest {
+public class GoodReadsTest {
     public WebDriver driver;
     public WebDriverWait wait;
 
@@ -121,11 +121,12 @@ public class FirstSeleniumTest {
         userPage.fillDropDown();
     }
 
-    @Test //TODO
+    @Test 
     public void fillAndReadRadioButton() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
-        userPage.checkRadioButton();
+        ExplorePage explorePage = userPage.goToExplore();
+        explorePage.checkRadioButton();
     }
 
     @Test
