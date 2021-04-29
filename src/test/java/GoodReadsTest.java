@@ -43,7 +43,6 @@ public class GoodReadsTest {
     
     @Before
     public void setup() {
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("platform", "win10");
