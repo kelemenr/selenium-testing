@@ -16,6 +16,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import java.time.Duration;
+import java.io.File;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -126,7 +128,9 @@ public class GoodReadsTest {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         ExplorePage explorePage = userPage.goToExplore();
-        explorePage.checkRadioButton();
+        explorePage.fillRadioButton();
+        Assert.assertEquals(true, explorePage.readRadioButton());
+
     }
 
     @Test
@@ -140,7 +144,8 @@ public class GoodReadsTest {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.logIn(testEmail, testPassword);
         StoryPage storyPage = new StoryPage(this.driver);
-        Assert.assertTrue(storyPage.uploadFile().contains("dog.jpg"));
+        String fileName = "dog.jpg";
+        Assert.assertTrue(storyPage.uploadFile(fileName).contains(fileName));
     }
 
     @Test

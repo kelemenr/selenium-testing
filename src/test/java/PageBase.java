@@ -35,6 +35,10 @@ class PageBase {
         js.executeScript("window.history.go(-1)");
     }
 
+    public String readTitle(){     
+        return driver.getTitle();
+    }
+
     public Cookie addCookie(String name) {
         this.driver.manage().addCookie(new Cookie(name, "bar"));
         Cookie cookie = this.driver.manage().getCookieNamed(name);

@@ -21,10 +21,10 @@ public class StoryPage extends PageBase {
         this.driver.get("https://www.goodreads.com/story/new");
     }
    
-    public String uploadFile(){
+    public String uploadFile(String fileName){
         WebElement addFile = this.waitAndReturnElement(fileUploadLocator);
-        File file = new File("C:/Users/Reka/Desktop/dog.jpg");
-        addFile.sendKeys("C:/Users/Reka/Desktop/dog.jpg");
+        String path = System.getProperty("user.dir") + "\\images\\" + fileName;
+        addFile.sendKeys(path);
         WebElement changedAddFile = this.waitAndReturnElement(fileUploadTextLocator);
         return changedAddFile.getAttribute("value");
     }

@@ -23,9 +23,13 @@ public class ExplorePage extends PageBase {
         return this.waitAndReturnElement(explorePageTextLocator).getText();
     }
 
-    public void checkRadioButton(){
+    public void fillRadioButton(){
         WebElement radioButton = this.waitAndReturnElement(radioButtonLocator);
         radioButton.click();
-        Assert.assertEquals(true, radioButton.isSelected());
+    }
+
+    public boolean readRadioButton(){
+        WebElement radioButton = this.waitAndReturnElement(radioButtonLocator);
+        return radioButton.isSelected();
     }
 }
