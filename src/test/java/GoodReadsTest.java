@@ -62,7 +62,7 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void sendFormWithUser() {
+    public void testSendFormWithUser() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         SearchResultPage searchResultPage = userPage.mainSearch();
@@ -78,7 +78,7 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void fillInput() {
+    public void testFillInput() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         SearchResultPage searchResultPage = userPage.sideSearch();
@@ -86,19 +86,19 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void sendFormWithoutUser() {
+    public void testSendFormWithoutUser() {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.search("Seneca");
     }
 
     @Test
-    public void readTextArea() {
+    public void testReadTextArea() {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.getMainPageText();
     }
     
     @Test
-    public void multiplePageTestFromArray() {
+    public void testMultiplePageTestFromArray() {
         MainPage mainPage = new MainPage(this.driver);
         Assert.assertEquals(multiplePageTestData.get("mainPage"), mainPage.getMainPageText());
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
@@ -115,14 +115,14 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void fillDropDown() {
+    public void testFillDropDown() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         userPage.fillDropDown();
     }
 
     @Test 
-    public void fillAndReadRadioButton() {
+    public void testFillAndReadRadioButton() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         ExplorePage explorePage = userPage.goToExplore();
@@ -130,13 +130,13 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void readPageTitle() {
+    public void testReadPageTitle() {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.readTitle();
     }
 
     @Test
-    public void fileUpload() {
+    public void testFileUpload() {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.logIn(testEmail, testPassword);
         StoryPage storyPage = new StoryPage(this.driver);
@@ -144,7 +144,7 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void browserHistory() {
+    public void testBrowserHistory() {
         MainPage mainPage = new MainPage(this.driver);
         mainPage.clickLink();
         mainPage.pageBack();
@@ -152,7 +152,7 @@ public class GoodReadsTest {
     }
 
     @Test
-    public void addCookie() {
+    public void tesetAddCookie() {
         MainPage mainPage = new MainPage(this.driver);
         UserPage userPage = mainPage.logIn(testEmail, testPassword);
         Cookie result = mainPage.addCookie("a_cookie");

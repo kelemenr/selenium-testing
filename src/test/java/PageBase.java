@@ -38,7 +38,6 @@ class PageBase {
     public Cookie addCookie(String name) {
         this.driver.manage().addCookie(new Cookie(name, "bar"));
         Cookie cookie = this.driver.manage().getCookieNamed(name);
-        // System.out.println(cookie);
         return cookie;
     }
 
